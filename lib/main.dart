@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -15,8 +16,26 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    Widget image_carousel = new Container(
+      height: 200.0,
+      child: new Carousel(
+        boxFit: BoxFit.cover,
+        images: [
+          AssetImage('images/Grocery.jpg'),
+          AssetImage('images/Vegetables.jpg'),
+          AssetImage('images/rest.jpg'),
+          AssetImage('images/Electronics-Shop.png'),
+        ],
+        autoplay: true,
+        animationCurve: Curves.fastOutSlowIn,
+        animationDuration: Duration(microseconds: 1000),
+        dotSize: 3.0,
+        indicatorBgPadding: 8.0,
+      ),
+    );
     return Scaffold(
       appBar: new AppBar(
+        elevation: 0.0,
         backgroundColor: Colors.blue,
         title: Text('NOGOZO'),
         actions: [
@@ -80,7 +99,9 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
               child: ListTile(
                 title: Text('Settings'),
-                leading: Icon(Icons.settings),
+                leading: Icon(
+                  Icons.settings,
+                ),
               ),
             ),
 
@@ -88,7 +109,9 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
               child: ListTile(
                 title: Text('Contact us'),
-                leading: Icon(Icons.phone),
+                leading: Icon(
+                  Icons.phone,
+                ),
               ),
             ),
 
@@ -96,19 +119,16 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
               child: ListTile(
                 title: Text('About'),
-                leading: Icon(Icons.shopping_basket),
-              ),
-            ),
-
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('About'),
-                leading: Icon(Icons.help),
+                leading: Icon(
+                  Icons.help,
+                ),
               ),
             ),
           ],
         ),
+      ),
+      body: new ListView(
+        children: [image_carousel],
       ),
     );
   }
