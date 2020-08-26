@@ -85,36 +85,48 @@ class _HomePageState extends State<HomePage> {
 
             InkWell(
               onTap: () {},
-              child: ListTile(
-                title: Text('Wishlist'),
-                leading: Icon(Icons.favorite),
-              ),
-            ),
-
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('Account'),
-                leading: Icon(Icons.person),
-              ),
-            ),
-
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('Settings'),
-                leading: Icon(
-                  Icons.settings,
+              child: Padding(
+                padding: const EdgeInsets.all(1.0),
+                child: ListTile(
+                  title: Text('Wishlist'),
+                  leading: Icon(Icons.favorite),
                 ),
               ),
             ),
 
             InkWell(
               onTap: () {},
-              child: ListTile(
-                title: Text('Contact us'),
-                leading: Icon(
-                  Icons.phone,
+              child: Padding(
+                padding: const EdgeInsets.all(1.0),
+                child: ListTile(
+                  title: Text('Account'),
+                  leading: Icon(Icons.person),
+                ),
+              ),
+            ),
+
+            InkWell(
+              onTap: () {},
+              child: Padding(
+                padding: const EdgeInsets.all(1.0),
+                child: ListTile(
+                  title: Text('Settings'),
+                  leading: Icon(
+                    Icons.settings,
+                  ),
+                ),
+              ),
+            ),
+
+            InkWell(
+              onTap: () {},
+              child: Padding(
+                padding: const EdgeInsets.all(1.0),
+                child: ListTile(
+                  title: Text('Contact us'),
+                  leading: Icon(
+                    Icons.phone,
+                  ),
                 ),
               ),
             ),
