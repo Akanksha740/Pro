@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 
+import 'package:nogozo/componetns/horizontal_listview.dart';
+
 void main() {
   runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -44,7 +46,9 @@ class _HomePageState extends State<HomePage> {
                 Icons.search,
                 color: Colors.white,
               ),
-              onPressed: () {}),
+              onPressed: () {
+                showSearch(context: context, delegate: DataSearch());
+              }),
           new IconButton(
               icon: Icon(
                 Icons.shopping_cart,
@@ -127,9 +131,62 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: new ListView(
-        children: [image_carousel],
+      body: new ListView(children: [
+        image_carousel,
+        new Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: new Text('Categories'),
+        ),
+        Horizontallist(),
+      ]),
+    );
+  }
+}
+
+class DataSearch extends SearchDelegate<String> {
+  final products = ["Apple", "Banana", "Mango", "Guava", "Pasta"];
+  final recentProducts = [
+    "Apple",
+    "Banana",
+    "Mango",
+  ];
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [
+      IconButton(
+        icon: Icon(Icons.clear),
+        onPressed: () {
+          query = "";
+        },
+      )
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context) {
+    return IconButton(
+      icon: AnimatedIcon(
+        icon: AnimatedIcons.menu_arrow,
+        progress: transitionAnimation,
       ),
+      onPressed: () {
+        close(context, null);
+      },
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {}
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    final suggestionlist = query.isEmpty ? recentProducts : products;
+    return ListView.builder(
+      itemBuilder: (context, index) => ListTile(
+        leading: Icon(Icons.blur_circular),
+        title: Text(suggestionlist[index]),
+      ),
+      itemCount: suggestionlist.length,
     );
   }
 }
