@@ -4,6 +4,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:nogozo/componetns/horizontal_listview.dart';
 import 'package:nogozo/componetns/products.dart';
 import 'package:nogozo/pages/cart.dart';
+import 'package:nogozo/pages/search.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -48,7 +49,10 @@ class _HomePageState extends State<HomePage> {
                 Icons.search,
                 color: Colors.white,
               ),
-              onPressed: () {}),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => new SearchPage()));
+              }),
           new IconButton(
               icon: Icon(
                 Icons.shopping_cart,
@@ -156,7 +160,7 @@ class _HomePageState extends State<HomePage> {
           Horizontallist(),
           new Padding(
             padding: const EdgeInsets.all(8.0),
-            child: new Text('Recent Search'),
+            child: new Text('Shops'),
           ),
           Flexible(child: Products()),
         ],
