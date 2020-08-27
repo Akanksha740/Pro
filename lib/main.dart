@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 
 import 'package:nogozo/componetns/horizontal_listview.dart';
+import 'package:nogozo/componetns/products.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -143,14 +144,24 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: new ListView(children: [
-        image_carousel,
-        new Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: new Text('Categories'),
-        ),
-        Horizontallist(),
-      ]),
+      body: new ListView(
+        children: [
+          image_carousel,
+          new Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new Text('Categories'),
+          ),
+          Horizontallist(),
+          new Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new Text('Recent Search'),
+          ),
+          Container(
+            height: 2500.0,
+            child: Products(),
+          ),
+        ],
+      ),
     );
   }
 }
