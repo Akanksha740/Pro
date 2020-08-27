@@ -48,9 +48,7 @@ class _HomePageState extends State<HomePage> {
                 Icons.search,
                 color: Colors.white,
               ),
-              onPressed: () {
-                showSearch(context: context, delegate: DataSearch());
-              }),
+              onPressed: () {}),
           new IconButton(
               icon: Icon(
                 Icons.shopping_cart,
@@ -148,7 +146,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: new ListView(
+      body: new Column(
         children: [
           image_carousel,
           new Padding(
@@ -160,60 +158,57 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(8.0),
             child: new Text('Recent Search'),
           ),
-          Container(
-            height: 2500.0,
-            child: Products(),
-          ),
+          Flexible(child: Products()),
         ],
       ),
     );
   }
 }
+//SEARCH//
+//class DataSearch extends SearchDelegate<String> {
+// final products = ["Apple", "Banana", "Mango", "Guava", "Pasta"];
+//  final recentProducts = [
+//  "Apple",
+//  "Banana",
+// "Mango",
+// ];
+// @override
+//List<Widget> buildActions(BuildContext context) {
+//return [
+//IconButton(
+//icon: Icon(Icons.clear),
+// onPressed: () {
+// query = "";
+// },
+// )
+//];
+// }
 
-class DataSearch extends SearchDelegate<String> {
-  final products = ["Apple", "Banana", "Mango", "Guava", "Pasta"];
-  final recentProducts = [
-    "Apple",
-    "Banana",
-    "Mango",
-  ];
-  @override
-  List<Widget> buildActions(BuildContext context) {
-    return [
-      IconButton(
-        icon: Icon(Icons.clear),
-        onPressed: () {
-          query = "";
-        },
-      )
-    ];
-  }
+//  @override
+// Widget buildLeading(BuildContext context) {
+// return IconButton(
+// icon: AnimatedIcon(
+// icon: AnimatedIcons.menu_arrow,
+// progress: transitionAnimation,
+//  ),
+//   onPressed: () {
+//    close(context, null);
+//  },
+// );
+// }
 
-  @override
-  Widget buildLeading(BuildContext context) {
-    return IconButton(
-      icon: AnimatedIcon(
-        icon: AnimatedIcons.menu_arrow,
-        progress: transitionAnimation,
-      ),
-      onPressed: () {
-        close(context, null);
-      },
-    );
-  }
+// @override
+// Widget buildResults(BuildContext context) {}
 
-  @override
-  Widget buildResults(BuildContext context) {}
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    final suggestionlist = query.isEmpty ? recentProducts : products;
-    return ListView.builder(
-      itemBuilder: (context, index) => ListTile(
-        leading: Icon(Icons.blur_circular),
-        title: Text(suggestionlist[index]),
-      ),
-      itemCount: suggestionlist.length,
-    );
-  }
-}
+// @override
+// Widget buildSuggestions(BuildContext context) {
+// final suggestionlist = query.isEmpty ? recentProducts : products;
+// return ListView.builder(
+//  itemBuilder: (context, index) => ListTile(
+//  leading: Icon(Icons.blur_circular),
+//  title: Text(suggestionlist[index]),
+//  ),
+//  itemCount: suggestionlist.length,
+//  );
+// }
+//}
