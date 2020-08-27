@@ -3,6 +3,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 
 import 'package:nogozo/componetns/horizontal_listview.dart';
 import 'package:nogozo/componetns/products.dart';
+import 'package:nogozo/pages/cart.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -55,7 +56,10 @@ class _HomePageState extends State<HomePage> {
                 Icons.shopping_cart,
                 color: Colors.white,
               ),
-              onPressed: () {}),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => new Cart()));
+              })
         ],
       ),
       drawer: new Drawer(
