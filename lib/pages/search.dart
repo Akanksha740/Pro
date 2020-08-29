@@ -9,10 +9,11 @@ class Shop {
 }
 
 List shoplist = [
-  Shop(name: 'Croma', image: 'images/Dominos.jpg', address: ''),
-  Shop(name: 'Dominos', image: 'images/cromaa.jpg', address: ''),
+  Shop(name: 'Croma', image: 'images/cromaa.jpg', address: ''),
+  Shop(name: 'Dominos', image: 'images/Dominos.jpg', address: ''),
   Shop(name: 'Fresh Veggies', image: 'images/VEG.jpg', address: ''),
   Shop(name: 'Shree Medicals', image: 'images/medc.jpg', address: ''),
+  Shop(name: 'Mojo Pizza', image: 'images/Mojo Pizza.jpg', address: ''),
 ];
 
 class SearchPage extends StatefulWidget {

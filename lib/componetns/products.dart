@@ -29,6 +29,11 @@ class _ProductsState extends State<Products> {
       "picture": "images/medc.jpg",
       "address": "",
     },
+    {
+      "name": "Mojo Pizza",
+      "picture": "images/Mojo Pizza.jpg",
+      "address": "",
+    },
   ];
   @override
   Widget build(BuildContext context) {
